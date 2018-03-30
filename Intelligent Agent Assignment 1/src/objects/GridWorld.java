@@ -92,34 +92,34 @@ public class GridWorld {
 		}
 	}
 
-	public static double chooseBestMovement(int col, int row, GridWorld g, String bm) {
+	public double chooseBestMovement(int col, int row, String bm) {
 		double u = 0;
 		switch (bm) {
 		case "up   ":
-			u = moveUpUtility(col, row, g);
+			u = moveUpUtility(col, row);
 			break;
 		case "down ":
-			u = moveDownUtility(col, row, g);
+			u = moveDownUtility(col, row);
 			break;
 		case "left ":
-			u = moveLeftUtility(col, row, g);
+			u = moveLeftUtility(col, row);
 			break;
 		case "right":
-			u = moveRightUtility(col, row, g);
+			u = moveRightUtility(col, row);
 			break;
 		}
 		return u;
 	}
 
-	public static String calculateBestMovementUtility(int col, int row, GridWorld g) {
+	public String calculateBestMovementUtility(int col, int row) {
 		String directionUp = "up   ";
 		String directionDown = "down ";
 		String directionLeft = "left ";
 		String directionRight = "right";
-		double up = moveUpUtility(col, row, g);
-		double down = moveDownUtility(col, row, g);
-		double right = moveRightUtility(col, row, g);
-		double left = moveLeftUtility(col, row, g);
+		double up = moveUpUtility(col, row);
+		double down = moveDownUtility(col, row);
+		double right = moveRightUtility(col, row);
+		double left = moveLeftUtility(col, row);
 
 		String daBest = directionUp;
 		double best = up;
@@ -139,34 +139,34 @@ public class GridWorld {
 		return daBest;
 	}
 
-	public static double moveUpUtility(int col, int row, GridWorld g) {
-		double u = 0.8 * moveUp(col, row, g) + 0.1 * moveLeft(col, row, g) + 0.1 * moveRight(col, row, g);
+	public double moveUpUtility(int col, int row) {
+		double u = 0.8 * moveUp(col, row) + 0.1 * moveLeft(col, row) + 0.1 * moveRight(col, row);
 		return u;
 	}
 
-	public static double moveDownUtility(int col, int row, GridWorld g) {
-		double u = 0.8 * moveDown(col, row, g) + 0.1 * moveLeft(col, row, g) + 0.1 * moveRight(col, row, g);
+	public double moveDownUtility(int col, int row) {
+		double u = 0.8 * moveDown(col, row) + 0.1 * moveLeft(col, row) + 0.1 * moveRight(col, row);
 		return u;
 	}
 
-	public static double moveRightUtility(int col, int row, GridWorld g) {
-		double u = 0.8 * moveRight(col, row, g) + 0.1 * moveUp(col, row, g) + 0.1 * moveDown(col, row, g);
+	public double moveRightUtility(int col, int row) {
+		double u = 0.8 * moveRight(col, row) + 0.1 * moveUp(col, row) + 0.1 * moveDown(col, row);
 		return u;
 	}
 
-	public static double moveLeftUtility(int col, int row, GridWorld g) {
-		double u = 0.8 * moveLeft(col, row, g) + 0.1 * moveUp(col, row, g) + 0.1 * moveDown(col, row, g);
+	public double moveLeftUtility(int col, int row) {
+		double u = 0.8 * moveLeft(col, row) + 0.1 * moveUp(col, row) + 0.1 * moveDown(col, row);
 		return u;
 	}
 
-	public static double moveUp(int col, int row, GridWorld g) {
+	public double moveUp(int col, int row) {
 		double u = 0;
 		int r = row - 1;
-		State[][] s = g.getGridsState();
+		State[][] s = this.getGridsState();
 		if (r < 0) {
 			// out of bound
 			u = s[col][row].getUtility();
-		} else if (g.grids[col][r].isWall) {
+		} else if (this.grids[col][r].isWall) {
 			// wall
 			u = s[col][row].getUtility();
 		} else {
@@ -175,14 +175,14 @@ public class GridWorld {
 		return u;
 	}
 
-	public static double moveDown(int col, int row, GridWorld g) {
+	public double moveDown(int col, int row) {
 		double u = 0;
 		int r = row + 1;
-		State[][] s = g.getGridsState();
-		if (r >= g.getNumOfRow()) {
+		State[][] s = this.getGridsState();
+		if (r >= this.getNumOfRow()) {
 			// out of bound
 			u = s[col][row].getUtility();
-		} else if (g.grids[col][r].isWall) {
+		} else if (this.grids[col][r].isWall) {
 			// wall
 			u = s[col][row].getUtility();
 		} else {
@@ -191,14 +191,14 @@ public class GridWorld {
 		return u;
 	}
 
-	public static double moveRight(int col, int row, GridWorld g) {
+	public double moveRight(int col, int row) {
 		double u = 0;
 		int c = col + 1;
-		State[][] s = g.getGridsState();
-		if (c >= g.getNumOfCol()) {
+		State[][] s = this.getGridsState();
+		if (c >= this.getNumOfCol()) {
 			// out of bound
 			u = s[col][row].getUtility();
-		} else if (g.grids[c][row].isWall) {
+		} else if (this.grids[c][row].isWall) {
 			// wall
 			u = s[col][row].getUtility();
 		} else {
@@ -207,14 +207,14 @@ public class GridWorld {
 		return u;
 	}
 
-	public static double moveLeft(int col, int row, GridWorld g) {
+	public double moveLeft(int col, int row) {
 		double u = 0;
 		int c = col - 1;
-		State[][] s = g.getGridsState();
+		State[][] s = this.getGridsState();
 		if (c < 0) {
 			// out of bound
 			u = s[col][row].getUtility();
-		} else if (g.grids[c][row].isWall) {
+		} else if (this.grids[c][row].isWall) {
 			// wall
 			u = s[col][row].getUtility();
 		} else {
