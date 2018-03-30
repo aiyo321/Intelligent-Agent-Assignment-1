@@ -56,7 +56,7 @@ public class valueiteration {
 				converge = true;
 			}
 		}
-		System.out.println("Iterate:" + count);
+		System.out.println("Iterate: " + count);
 		System.out.println();
 		gridW.displayStateMovement();
 		System.out.println();
