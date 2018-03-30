@@ -6,10 +6,6 @@ public class Grid {
 	int row;
 	double reward;
 	boolean isWall;
-	
-	public static void main(String[] args) {
-
-	}
 
 	public int getCol() {
 		return col;

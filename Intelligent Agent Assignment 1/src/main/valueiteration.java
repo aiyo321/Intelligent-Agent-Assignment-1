@@ -18,6 +18,15 @@ public class valueiteration {
 		gridW.displayGridWorld();
 		System.out.println();
 
+		valueIteration(gridW);
+
+		System.out.println();
+		gridW.displayStateMovement();
+		System.out.println();
+		gridW.displayState();
+	}
+	
+	public static void valueIteration(GridWorld gridW) {
 		double u = 0;
 		String bestMovement;
 		boolean converge = false;
@@ -57,10 +66,6 @@ public class valueiteration {
 			}
 		}
 		System.out.println("Iterate: " + count);
-		System.out.println();
-		gridW.displayStateMovement();
-		System.out.println();
-		gridW.displayState();
 	}
 
 	public static void setGridStates(GridWorld gw, State[][] state) {

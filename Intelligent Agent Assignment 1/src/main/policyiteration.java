@@ -13,6 +13,16 @@ public class policyiteration {
 		gridW.generateGridWorld();
 		gridW.displayGridWorld();
 		System.out.println();
+		
+		policyIteration(gridW);
+		
+		System.out.println();
+		gridW.displayStateMovement();
+		System.out.println();
+		gridW.displayState();
+	}
+	
+	public static void policyIteration(GridWorld gridW) {
 		setInitialPolicy(gridW);
 
 		State[][] newState = new State[gridW.getNumOfRow()][gridW.getNumOfCol()];
@@ -31,8 +41,6 @@ public class policyiteration {
 		} while (changed);
 
 		System.out.println("Iterate: " + count);
-		gridW.displayStateMovement();
-		gridW.displayState();
 	}
 
 	public static boolean policyImprove(GridWorld gridW, State[][] newState) {
