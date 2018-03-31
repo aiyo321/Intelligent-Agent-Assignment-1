@@ -2,6 +2,9 @@ package main;
 
 import objects.GridWorld;
 
+/**
+ * @author Too Jian Teng (U1621194C)
+ */
 public class complexMaze {
 
 	public static void main(String[] args) {

@@ -3,6 +3,10 @@ package main;
 import objects.GridWorld;
 import objects.State;
 
+
+/**
+ * @author Too Jian Teng (U1621194C)
+ */
 public class policyiteration {
 
 	static final double DISCOUNT_FACTOR = 0.99;
@@ -20,11 +24,14 @@ public class policyiteration {
 		gridW.displayStateMovement();
 		System.out.println();
 		gridW.displayState();
+		System.out.println();
+		gridW.displayStateLineByLine();
 	}
 	
 	public static void policyIteration(GridWorld gridW) {
 		setInitialPolicy(gridW);
 
+		//initialising a state[][] array
 		State[][] newState = new State[gridW.getNumOfRow()][gridW.getNumOfCol()];
 		for (int k = 0; k < gridW.getNumOfRow(); k++) {
 			for (int l = 0; l < gridW.getNumOfCol(); l++) {
@@ -35,6 +42,8 @@ public class policyiteration {
 		int count = 0;
 		boolean changed;
 		do {
+			
+
 			simplifiedBellmanUpdate(gridW, newState);
 			changed = policyImprove(gridW, newState);
 			count++;

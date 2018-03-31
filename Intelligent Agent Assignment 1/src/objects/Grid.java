@@ -1,5 +1,9 @@
 package objects;
 
+/**
+ * @author Too Jian Teng (U1621194C)
+ * grid class to define each grid in the maze
+ */
 public class Grid {
 
 	int col;

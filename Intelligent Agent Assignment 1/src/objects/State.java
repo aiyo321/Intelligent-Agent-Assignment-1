@@ -1,5 +1,9 @@
 package objects;
 
+/**
+ * @author Too Jian Teng (U1621194C)
+ * state class to determine each state in the maze
+ */
 public class State {
 
 	double utility;

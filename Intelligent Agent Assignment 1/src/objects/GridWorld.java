@@ -57,11 +57,10 @@ public class GridWorld {
 		grids[2][4].setWall(true);
 		grids[3][4].setWall(true);
 	}
-	
+
 	/**
-	 *  for part 2 of the assignment
-	 *  increased number of grids
-	 *  various different rewards
+	 * for part 2 of the assignment increased number of grids various different
+	 * rewards
 	 */
 	public void generateComplexGridWorld() {
 		for (int i = 0; i < getNumOfRow(); i++) {
@@ -77,31 +76,31 @@ public class GridWorld {
 		// setting +1 grid
 		grids[1][1].setReward(1);
 		grids[7][3].setReward(1);
-		
-		//setting +2 grid
+
+		// setting +2 grid
 		grids[3][2].setReward(2);
 		grids[4][7].setReward(2);
-		
-		//setting +3 grid
+
+		// setting +3 grid
 		grids[2][4].setReward(3);
 		grids[7][7].setReward(3);
-		
-		//setting +4 grid
+
+		// setting +4 grid
 		grids[4][0].setReward(4);
 
 		// setting -1 grid
 		grids[5][3].setReward(-1);
 		grids[3][5].setReward(-1);
-		
-		//setting -2 grid
+
+		// setting -2 grid
 		grids[2][3].setReward(-2);
 		grids[5][6].setReward(-2);
-		
-		//setting -3 grid
+
+		// setting -3 grid
 		grids[6][1].setReward(-3);
 		grids[0][8].setReward(-3);
-		
-		//setting -4 grid
+
+		// setting -4 grid
 		grids[4][4].setReward(-4);
 
 		// setting walls
@@ -133,6 +132,29 @@ public class GridWorld {
 				}
 			}
 			System.out.println();
+		}
+	}
+
+	public void displayStateLineByLine() {
+		for (int row = 0; row < getNumOfRow(); row++) {
+			for (int col = 0; col < getNumOfCol(); col++) {
+				if (gridsState[col][row].getUtility() == 0) {
+					System.out.println("(" + col + "," + row + "): " + "0");
+				} else {
+					System.out.println("(" + col + "," + row + "): " + gridsState[col][row].getUtility());
+				}
+			}
+		}
+	}
+	public void displayStateLineByLine2() {
+		for (int row = 0; row < getNumOfRow(); row++) {
+			for (int col = 0; col < getNumOfCol(); col++) {
+				if (gridsState[col][row].getUtility() == 0) {
+					System.out.println("0");
+				} else {
+					System.out.println(gridsState[col][row].getUtility());
+				}
+			}
 		}
 	}
 
@@ -320,8 +342,8 @@ public class GridWorld {
 		return u;
 	}
 
-	//getters and setters
-	
+	// getters and setters
+
 	public State[][] getGridsState() {
 		return gridsState;
 	}

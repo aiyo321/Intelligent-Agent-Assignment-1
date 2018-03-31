@@ -6,6 +6,10 @@ import java.util.Collections;
 import objects.GridWorld;
 import objects.State;
 
+
+/**
+ * @author Too Jian Teng (U1621194C)
+ */
 public class valueiteration {
 
 	static final double DISCOUNT_FACTOR = 0.99;
@@ -24,6 +28,8 @@ public class valueiteration {
 		gridW.displayStateMovement();
 		System.out.println();
 		gridW.displayState();
+		System.out.println();
+		gridW.displayStateLineByLine();
 	}
 	
 	public static void valueIteration(GridWorld gridW) {
@@ -64,6 +70,7 @@ public class valueiteration {
 			if (diff < CONVERGENCE_CRITERIA) {
 				converge = true;
 			}
+
 		}
 		System.out.println("Iterate: " + count);
 	}
